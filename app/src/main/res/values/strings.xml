@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">android_demo_app_005_lec_13</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="tv_header_activity_login">Login Activity</string>
+
+    <string name="tv_header_frag_login"><![CDATA[Login fragment]]></string>
+    <string name="et_email">email</string>
+    <string name="et_password">password</string>
+    <string name="btn_register">Register</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_google_account_login_frag_login">sign-in with google</string>
+
+
+    <string name="tv_header_frag_register">Signup</string>
+    <string name="et_username_frag_register">username</string>
+    <string name="et_email_frag_register">email</string>
+    <string name="et_password_frag_register">password</string>
+    <string name="btn_save_frag_register">save and login</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_chat">Chat</string>
+
+    <string name="tv_header_frag_profile">Profile Fragment</string>
+
+    <string name="tv_header_frag_chat">Chat Fragment</string>
+
+    <string name="tv_header_frag_home">Home Fragment</string>
+    <string name="btn_signout_frag_home">signout</string>
+    <string name="tv_title_frag_home">my vehicle collection</string>
+    <string name="tv_name_vehicle_row">vehicle name</string>
+    <string name="tv_model_vehicle_row">Model</string>
+    <string name="tv_cost_vehicle_row">Cost</string>
+
+
+</resources>
