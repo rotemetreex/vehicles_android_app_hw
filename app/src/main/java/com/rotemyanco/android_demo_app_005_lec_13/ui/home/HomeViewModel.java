@@ -1,18 +1,14 @@
 package com.rotemyanco.android_demo_app_005_lec_13.ui.home;
 import android.app.Application;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import com.rotemyanco.android_demo_app_005_lec_13.models.Vehicle;
 import com.rotemyanco.android_demo_app_005_lec_13.repos.SwApiRepo;
-import com.rotemyanco.android_demo_app_005_lec_13.services.listeners.rdbResponseListener;
+import com.rotemyanco.android_demo_app_005_lec_13.services.listeners.LDBResListener;
+import com.rotemyanco.android_demo_app_005_lec_13.services.listeners.RDBResListener;
 import java.util.List;
-
-
-
-
 
 
 public class HomeViewModel extends AndroidViewModel {
@@ -32,7 +28,7 @@ public class HomeViewModel extends AndroidViewModel {
         if (vehicleListLivedata == null) {
             vehicleListLivedata = new MutableLiveData<>();
         }
-        SwApiRepo.getInstance(getApplication().getApplicationContext()).getVehicleListResponse(new rdbResponseListener() {
+        SwApiRepo.getInstance(getApplication().getApplicationContext()).getVehicleListResponse(new RDBResListener() {
             @Override
             public void onVehicleResponseSuccess(List<Vehicle> vehicleList) {
                 vehicleListLivedata.postValue(vehicleList);
@@ -46,9 +42,25 @@ public class HomeViewModel extends AndroidViewModel {
         return vehicleListLivedata;
     }
 
-    public LiveData<List<Vehicle>> getLocalDBVehicleList() {
-        return SwApiRepo.getInstance(getApplication().getApplicationContext()).getLocalDBVehicleList();
+//    public LiveData<List<Vehicle>> getLocalDBVehicleList() {
+//        return SwApiRepo.getInstance(getApplication().getApplicationContext()).getLocalDBVehicleList();
+//    }
+
+    public void getLocalDBVehicleList() {
+        SwApiRepo.getInstance(getApplication().getApplicationContext()).getLocalDBVehicleList(new LDBResListener() {
+            @Override
+            public void onLocalDBResponseSuccess(List<Vehicle> vehicleList) {
+                localDBVehicleListLiveData.postValue(vehicleList);
+            }
+
+            @Override
+            public void onLocalDBResponseFailure(String error) {
+
+            }
+        });
     }
+
+
 
     public LiveData<Vehicle> getLocalDBVehicleById(int id) {
         return SwApiRepo.getInstance(getApplication().getApplicationContext()).getLocalDBVehicleById(id);

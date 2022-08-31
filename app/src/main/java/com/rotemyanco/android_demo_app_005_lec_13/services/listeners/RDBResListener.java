@@ -5,7 +5,7 @@ import java.util.List;
 
 
 
-public interface rdbResponseListener {
+public interface RDBResListener {
 
     void onVehicleResponseSuccess(List<Vehicle> vehicleList);
 

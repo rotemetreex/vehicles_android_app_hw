@@ -11,9 +11,6 @@ import com.rotemyanco.android_demo_app_005_lec_13.models.Vehicle;
 import java.util.List;
 
 
-
-
-
 public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.VehicleVH> {
 
     private List<Vehicle> vehicleList;

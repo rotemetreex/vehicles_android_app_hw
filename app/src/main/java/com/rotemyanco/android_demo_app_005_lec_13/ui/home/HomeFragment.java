@@ -5,27 +5,23 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.rotemyanco.android_demo_app_005_lec_13.LoginActivity;
 import com.rotemyanco.android_demo_app_005_lec_13.R;
 import com.rotemyanco.android_demo_app_005_lec_13.adapters.VehicleAdapter;
 import com.rotemyanco.android_demo_app_005_lec_13.models.Vehicle;
-
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 public class HomeFragment extends Fragment {
@@ -60,6 +56,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         tvSignOut = v.findViewById(R.id.tv_signout_frag_home);
+        setUpRecycler(v);
         // Inflate the layout for this fragment
         return v;
     }
@@ -67,8 +64,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        setUpRecycler(view);
 
         homeViewModel.getVehicleList().observe(getViewLifecycleOwner(), vehicles -> {
             Log.d("-------- Home Fragment ---------", "onViewCreated: get from ---->    web services\n" + vehicles.toString());
@@ -85,18 +80,11 @@ public class HomeFragment extends Fragment {
 
         });
 
-
         tvSignOut.setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
             getActivity().finish();
             startActivity(new Intent(getContext(), LoginActivity.class));
         });
-
-
-
-
-
-
 
         Vehicle vehicle = new Vehicle();
         vehicle.setId(1);
