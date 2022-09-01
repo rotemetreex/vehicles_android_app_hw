@@ -86,12 +86,14 @@ public class HomeFragment extends Fragment {
             startActivity(new Intent(getContext(), LoginActivity.class));
         });
 
-        Vehicle vehicle = new Vehicle();
-        vehicle.setId(1);
-        vehicle.setName("mmmmmmmmmm");
-        vehicle.setModel("mmmmmmmmmmmmm");
-        vehicle.setCost("222222222222");
-        homeViewModel.upsertLocal(vehicle);
+//        Vehicle vehicle = new Vehicle();
+//        vehicle.setId(1);
+//        vehicle.setName("mmmmmmmmmm");
+//        vehicle.setModel("mmmmmmmmmmmmm");
+//        vehicle.setCost("222222222222");
+
+        // crash! --> put in new thread!
+//        homeViewModel.upsertLocal(vehicle);
     }
 
     private void showToast(String msg) {

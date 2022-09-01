@@ -20,7 +20,8 @@ public abstract class VehicleDB extends RoomDatabase {
 
     public static VehicleDB create(Context context) {
         return Room.databaseBuilder(context, VehicleDB.class, "Local_Vehicle_DB")
-                .allowMainThreadQueries()
+                // FOR TESTING ONLY!!
+//                .allowMainThreadQueries()
                 .build();
     }
 
